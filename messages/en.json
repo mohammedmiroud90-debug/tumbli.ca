@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "nav": { "label": "Main navigation", "language": "Language", "discover": "Discover", "posts": "Our Posts", "about": "About", "contact": "Contact" },
+    "eyebrow": "Tumbli Journal",
+    "title": "Good ideas. Every day.",
+    "description": "Explore the people, places and fresh perspectives that make everyday life a little more interesting.",
+    "cta": "Read our posts",
+    "secondaryCta": "Start exploring",
+    "highlights": {
+      "eyebrow": "Featured stories",
+      "title": "Explore what moves you.",
+      "note": "Swipe to discover more",
+      "one": { "title": "People creating meaningful change", "description": "Meet the voices, makers and neighbours who turn care into action." },
+      "two": { "title": "New ideas for everyday living", "description": "A useful collection of thoughtful ways to see your world differently." },
+      "three": { "title": "The places worth knowing", "description": "Keep close to the local stories and hidden corners that stay with you." }
+    },
+    "intro": "A considered collection of stories, recommendations and ideas. Find something useful, save what you love and come back whenever you need a new point of view.",
+    "collections": {
+      "one": { "title": "Culture", "links": ["City notes", "Books and films", "Creative people", "Small rituals"] },
+      "two": { "title": "Wellbeing", "links": ["Slow living", "Mind and body", "Home comforts", "Weekend reset"] },
+      "three": { "title": "Ideas", "links": ["Work with purpose", "Better habits", "Useful tools", "Fresh thinking"] },
+      "four": { "title": "Travel", "links": ["Local guides", "Hidden places", "Food finds", "Go lightly"] }
+    },
+    "posts": {
+      "eyebrow": "Our posts", "title": "Read. Save. Share.", "viewAll": "View all posts", "readMore": "Read story",
+      "first": { "category": "Culture", "title": "The little things that make a city feel like home" },
+      "second": { "category": "Ideas", "title": "A slower, brighter way to spend your weekend" },
+      "third": { "category": "People", "title": "Meet the makers putting care into every detail" }
+    },
+    "footer": "Copyright 2026 Tumbli. Made for your next good idea."
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "Home": {
+    "nav": { "label": "Navigation principale", "language": "Langue", "discover": "Decouvrir", "posts": "Nos articles", "about": "A propos", "contact": "Contact" },
+    "eyebrow": "Journal Tumbli",
+    "title": "De belles idees. Chaque jour.",
+    "description": "Explorez les personnes, les lieux et les perspectives qui rendent le quotidien un peu plus interessant.",
+    "cta": "Lire nos articles",
+    "secondaryCta": "Commencer a explorer",
+    "highlights": {
+      "eyebrow": "Histoires a la une",
+      "title": "Explorez ce qui vous inspire.",
+      "note": "Faites glisser pour en voir plus",
+      "one": { "title": "Des personnes qui creent un changement utile", "description": "Rencontrez les voix et les createurs qui transforment le soin en action." },
+      "two": { "title": "De nouvelles idees pour le quotidien", "description": "Une collection utile de facons de voir le monde autrement." },
+      "three": { "title": "Les lieux qui meritent d'etre connus", "description": "Gardez pres de vous les histoires locales et les coins caches qui restent en memoire." }
+    },
+    "intro": "Une collection reflechie d'histoires, de recommandations et d'idees. Trouvez ce qui vous est utile, gardez ce que vous aimez et revenez pour un nouveau regard.",
+    "collections": {
+      "one": { "title": "Culture", "links": ["Notes de ville", "Livres et films", "Personnes creatives", "Petits rituels"] },
+      "two": { "title": "Bien-etre", "links": ["Vivre plus doucement", "Corps et esprit", "Confort chez soi", "Pause du week-end"] },
+      "three": { "title": "Idees", "links": ["Travailler avec sens", "Meilleures habitudes", "Outils utiles", "Nouvelles pistes"] },
+      "four": { "title": "Voyage", "links": ["Guides locaux", "Lieux caches", "Decouvertes gourmandes", "Voyager leger"] }
+    },
+    "posts": {
+      "eyebrow": "Nos articles", "title": "Lire. Garder. Partager.", "viewAll": "Voir tous les articles", "readMore": "Lire l'histoire",
+      "first": { "category": "Culture", "title": "Les details qui font qu'une ville devient un chez-soi" },
+      "second": { "category": "Idees", "title": "Une facon plus douce de vivre son week-end" },
+      "third": { "category": "Personnes", "title": "Rencontrez les createurs qui prennent soin de chaque detail" }
+    },
+    "footer": "Copyright 2026 Tumbli. Cree pour votre prochaine belle idee."
+  }
+}

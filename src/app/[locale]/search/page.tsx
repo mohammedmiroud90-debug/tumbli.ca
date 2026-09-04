@@ -1,0 +1,20 @@
+import { ContentHeader } from "@/components/content-header";
+import { JournalFooter } from "@/components/journal-footer";
+import { searchPosts, searchQuestions } from "@/lib/parse";
+
+export const revalidate = 300;
+
+export default async function SearchPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ q?: string }> }) {
+  const [{ locale }, { q }] = await Promise.all([params, searchParams]);
+  const query = q?.trim() ?? "";
+  const [{ items: posts, total: postTotal }, { items: questions, total: questionTotal }] = query ? await Promise.all([searchPosts(query, 30, locale), searchQuestions(query, 30, locale)]) : [{ items: [], total: 0 }, { items: [], total: 0 }];
+  const total = postTotal + questionTotal;
+
+  return <main className="min-h-screen bg-[#f5f6f8] text-[#252525]"><ContentHeader locale={locale} />
+    <section className="mx-auto max-w-5xl px-4 py-12 sm:px-8 sm:py-16"><p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#8c1515]">Tumbli search</p><h1 className="mt-2 text-4xl font-semibold tracking-[-0.05em] sm:text-6xl">Find stories and answers</h1>
+      <form action={`/${locale}/search`} role="search" className="mt-8 flex max-w-3xl gap-2"><input name="q" defaultValue={query} placeholder="Search articles and questions" className="min-w-0 flex-1 border border-[#c9c3b9] bg-white px-4 py-3 text-base outline-none focus:border-[#8c1515]" autoFocus /><button className="bg-[#8c1515] px-5 text-sm font-semibold text-white transition-colors hover:bg-[#b1040e]">Search</button></form>
+      {query && <p className="mt-6 text-sm text-zinc-600">{total} result{total === 1 ? "" : "s"} for <span className="font-semibold text-[#252525]">“{query}”</span></p>}
+      {!query ? <p className="mt-10 text-sm text-zinc-600">Enter a topic, title, or keyword to search all posts and community questions.</p> : <div className="mt-10 grid gap-12 lg:grid-cols-2"><section><div className="flex items-baseline justify-between border-b border-[#c9c3b9] pb-3"><h2 className="text-2xl font-semibold tracking-[-0.035em]">Posts</h2><span className="text-xs text-zinc-500">{postTotal} found</span></div><div className="divide-y divide-[#d9d4cb]">{posts.length ? posts.map((post) => <article key={post.id} className="py-6"><p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8c1515]">{post.category} · {post.readingTime} min read</p><h3 className="mt-2 text-xl font-semibold leading-snug"><a href={`/${locale}/posts/${post.slug}`} className="transition-colors hover:text-[#8c1515]">{post.title}</a></h3><p className="mt-2 text-sm leading-6 text-zinc-600">{post.excerpt}</p><a href={`/${locale}/posts/${post.slug}`} className="mt-3 inline-block text-sm font-semibold text-[#8c1515] underline underline-offset-4">Read article →</a></article>) : <p className="py-6 text-sm text-zinc-500">No matching posts.</p>}</div></section><section><div className="flex items-baseline justify-between border-b border-[#c9c3b9] pb-3"><h2 className="text-2xl font-semibold tracking-[-0.035em]">Questions &amp; answers</h2><span className="text-xs text-zinc-500">{questionTotal} found</span></div><div className="divide-y divide-[#d9d4cb]">{questions.length ? questions.map((question) => <article key={question.id} className="py-6"><p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#8c1515]">{question.category} · {question.viewCount} views</p><h3 className="mt-2 text-xl font-semibold leading-snug"><a href={`/${locale}/questions/${question.slug}`} className="transition-colors hover:text-[#8c1515]">{question.title}</a></h3><p className="mt-2 line-clamp-3 text-sm leading-6 text-zinc-600">{question.question}</p><a href={`/${locale}/questions/${question.slug}`} className="mt-3 inline-block text-sm font-semibold text-[#8c1515] underline underline-offset-4">Read discussion →</a></article>) : <p className="py-6 text-sm text-zinc-500">No matching questions.</p>}</div></section></div>}
+    </section><JournalFooter locale={locale} />
+  </main>;
+}
