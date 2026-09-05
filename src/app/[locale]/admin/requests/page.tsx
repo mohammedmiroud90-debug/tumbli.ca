@@ -1,0 +1,4 @@
+import { AdminRequestReview } from "@/components/admin-request-review";
+import { ContentHeader } from "@/components/content-header";
+import { JournalFooter } from "@/components/journal-footer";
+export default async function AdminRequestsPage({ params }: { params: Promise<{ locale: string }> }) { const { locale } = await params; return <main className="min-h-screen bg-[#f5f6f8] text-[#252525]"><ContentHeader locale={locale}/><section className="mx-auto max-w-5xl px-4 py-14 sm:px-8 sm:py-20"><p className="text-[11px] font-semibold uppercase tracking-[.18em] text-[#8c1515]">Tumbli Studio</p><h1 className="mt-3 text-5xl font-semibold tracking-[-.055em]">Request review</h1><p className="mt-4 max-w-2xl text-lg leading-8 text-zinc-600">Review customer requirements and validate the requests that are ready to move forward.</p><div className="mt-9"><AdminRequestReview/></div></section><JournalFooter locale={locale}/></main>; }

@@ -204,7 +204,7 @@ function mapPost(record: Record<string, unknown>): Post {
     category: text(record.category) || text(record.type) || text(record.tag) || "General",
     author: author(record),
     publishedAt: date(record.publishedAt ?? record.originalCreatedAt ?? record.createdAt, new Date().toISOString()),
-    imageUrl: fileUrl(record.coverImage) || fileUrl(record.image) || fileUrl(record.thumbnail) || fileUrl(record.imageUrl),
+    imageUrl: fileUrl(record.coverImage) || fileUrl(record.image) || fileUrl(record.thumbnail) || fileUrl(record.photo) || fileUrl(record.banner) || fileUrl(record.imageUrl),
     tags,
     readingTime,
     translations: translationMap(record.translations),

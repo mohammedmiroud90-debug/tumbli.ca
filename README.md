@@ -2,6 +2,19 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 
 ## Getting Started
 
+## Service-request dashboard
+
+Website enquiries are stored in the Parse `ServiceRequest` collection. User sign-in uses Parse users and an HTTP-only session cookie.
+
+To enable owner review at `/{locale}/admin/requests`, set these server-side environment variables in `.env.local` and your deployment environment:
+
+```bash
+PARSE_MASTER_KEY=your-parse-master-key
+SERVICE_ADMIN_EMAIL=your-admin-email@example.com
+```
+
+`PARSE_MASTER_KEY` is never sent to the browser. The review page is available only to the signed-in Parse user whose email matches `SERVICE_ADMIN_EMAIL`.
+
 First, run the development server:
 
 ```bash

@@ -1,6 +1,6 @@
 {
   "Home": {
-    "nav": { "label": "Main navigation", "language": "Language", "discover": "Discover", "posts": "Our Posts", "about": "About", "contact": "Contact" },
+    "nav": { "label": "Main navigation", "language": "Language", "discover": "Discover", "services": "Services", "featured": "Reinforcement learning", "posts": "Our Posts", "questions": "Questions & answers", "search": "Search Tumbli", "products": "Products", "platform": "Platform", "about": "About", "contact": "Contact", "openMenu": "Open menu", "searchStories": "Search stories", "chooseLanguage": "Choose language" },
     "eyebrow": "Tumbli Journal",
     "title": "Good ideas. Every day.",
     "description": "Explore the people, places and fresh perspectives that make everyday life a little more interesting.",
@@ -27,6 +27,6 @@
       "second": { "category": "Ideas", "title": "A slower, brighter way to spend your weekend" },
       "third": { "category": "People", "title": "Meet the makers putting care into every detail" }
     },
-    "footer": "Copyright 2026 Tumbli. Made for your next good idea."
+    "footer": { "heading": "Good ideas. Made to explore.", "description": "Explore the people, places and fresh perspectives that make everyday life a little more interesting.", "linkedin": "Tumbli on LinkedIn", "copyright": "Copyright 2026 Tumbli. Made for your next good idea." }
   }
 }

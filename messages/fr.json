@@ -1,6 +1,6 @@
 {
   "Home": {
-    "nav": { "label": "Navigation principale", "language": "Langue", "discover": "Decouvrir", "posts": "Nos articles", "about": "A propos", "contact": "Contact" },
+    "nav": { "label": "Navigation principale", "language": "Langue", "discover": "Découvrir", "services": "Services", "featured": "Apprentissage par renforcement", "posts": "Nos articles", "questions": "Questions et réponses", "search": "Rechercher Tumbli", "products": "Produits", "platform": "Plateforme", "about": "À propos", "contact": "Contact", "openMenu": "Ouvrir le menu", "searchStories": "Rechercher des articles", "chooseLanguage": "Choisir la langue" },
     "eyebrow": "Journal Tumbli",
     "title": "De belles idees. Chaque jour.",
     "description": "Explorez les personnes, les lieux et les perspectives qui rendent le quotidien un peu plus interessant.",
@@ -27,6 +27,6 @@
       "second": { "category": "Idees", "title": "Une facon plus douce de vivre son week-end" },
       "third": { "category": "Personnes", "title": "Rencontrez les createurs qui prennent soin de chaque detail" }
     },
-    "footer": "Copyright 2026 Tumbli. Cree pour votre prochaine belle idee."
+    "footer": { "heading": "De belles idées. À explorer.", "description": "Explorez les personnes, les lieux et les perspectives qui rendent le quotidien un peu plus intéressant.", "linkedin": "Tumbli sur LinkedIn", "copyright": "Copyright 2026 Tumbli. Créé pour votre prochaine belle idée." }
   }
 }

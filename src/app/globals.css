@@ -28,3 +28,11 @@ body {
   background: #f51d29;
   color: #ffffff;
 }
+@keyframes hero-corner-orbit {
+  0%, 100% { opacity: 0.2; transform: scale(0.88); }
+  50% { opacity: 0.95; transform: scale(1); }
+}
+
+.hero-corner-orbit {
+  animation: hero-corner-orbit 3.8s ease-in-out infinite;
+}
