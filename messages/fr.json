@@ -1,6 +1,6 @@
 {
   "Home": {
-    "nav": { "label": "Navigation principale", "language": "Langue", "discover": "Découvrir", "services": "Services", "featured": "Apprentissage par renforcement", "posts": "Nos articles", "questions": "Questions et réponses", "search": "Rechercher Tumbli", "products": "Produits", "platform": "Plateforme", "about": "À propos", "contact": "Contact", "openMenu": "Ouvrir le menu", "searchStories": "Rechercher des articles", "chooseLanguage": "Choisir la langue" },
+    "nav": { "label": "Navigation principale", "language": "Langue", "discover": "Découvrir", "services": "Services", "featured": "Apprentissage par renforcement", "posts": "Nos articles", "questions": "Questions et réponses", "search": "Rechercher Tumbli", "products": "Produits", "platform": "Plateforme", "about": "À propos", "contact": "Contact", "request": "Demander", "openMenu": "Ouvrir le menu", "searchStories": "Rechercher des articles", "chooseLanguage": "Choisir la langue" },
     "eyebrow": "Journal Tumbli",
     "title": "De belles idees. Chaque jour.",
     "description": "Explorez les personnes, les lieux et les perspectives qui rendent le quotidien un peu plus interessant.",

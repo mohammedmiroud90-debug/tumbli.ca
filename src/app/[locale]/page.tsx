@@ -28,7 +28,7 @@ export default async function HomePage() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
-      <section id="top" className="border-b border-white/20 bg-[#8c1515]">
+      <section id="top" className="relative overflow-hidden border-b border-white/20 bg-[#8c1515]">
         <header className="mx-auto w-full max-w-[1320px] px-4 sm:px-8">
           {/* Enhanced Mobile Top Bar */}
           <div className="flex min-h-12 items-center gap-2 border-b border-white/20 text-[11px] font-medium text-white sm:gap-5">
@@ -59,6 +59,7 @@ export default async function HomePage() {
                 <path d="m15 15 4 4" />
               </svg>
             </a>
+            <a href={`/${locale}/request`} className="inline-flex shrink-0 items-center gap-1 border-b border-white px-1 py-1 text-[10px] font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:border-black hover:bg-black hover:text-white sm:hidden">{t("nav.request")} <span aria-hidden="true" className="text-xs leading-none">↗</span></a>
             
             {/* Desktop search field */}
             <form action={`/${locale}/search`} role="search" className="ml-auto hidden shrink-0 sm:block">
@@ -128,6 +129,7 @@ export default async function HomePage() {
               <div className="fixed inset-0 z-50 hidden overflow-y-auto bg-[#202020] pt-24 text-white group-open:block">
                 {/* Menu Items */}
                 <div className="min-h-full border-r border-white/50 px-7 pb-12 shadow-[12px_0_20px_rgba(0,0,0,0.32)]">
+                  <a href={`/${locale}`} aria-label="Tumbli home" className="mb-10 inline-block border-b border-white/25 pb-5"><Image src="/tumbli-logo.png" alt="Tumbli" width={146} height={39} className="h-auto w-[126px] brightness-0 invert" /></a>
                   <a href={`/${locale}/discover`} className="flex items-center justify-between py-2 text-4xl font-semibold leading-tight tracking-[-0.05em] transition-colors hover:text-[#f7ced0]">
                     {t("nav.discover")}
                   </a>
@@ -152,6 +154,7 @@ export default async function HomePage() {
             
             {/* Desktop search and language controls */}
             <div className="hidden items-center justify-self-end gap-1 lg:flex">
+              <a href={`/${locale}/request`} className="mr-1 inline-flex items-center gap-1 border-b border-white px-1 py-1 text-xs font-semibold uppercase tracking-[0.08em] text-white transition-colors hover:border-black hover:bg-black hover:text-white">{t("nav.request")} <span aria-hidden="true" className="text-sm leading-none">↗</span></a>
               <a href={`/${locale}/search`} aria-label={t("nav.searchStories")} className="grid size-12 place-items-center rounded-full text-white transition-colors hover:bg-white/10 hover:text-[#f7ced0] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white">
                 <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="size-6"><circle cx="11" cy="11" r="5.5" /><path d="m15.2 15.2 4.3 4.3" /></svg>
               </a>
@@ -171,7 +174,7 @@ export default async function HomePage() {
         </header>
 
         <div className="relative mx-auto min-h-[295px] max-w-[1100px] px-4 pb-9 pt-11 sm:min-h-[365px] sm:px-8 sm:pb-12 sm:pt-16">
-          <span aria-hidden="true" className="hero-corner-orbit pointer-events-none absolute -bottom-20 -left-20 size-40 rounded-full border-[18px] border-white/90 sm:-bottom-24 sm:-left-24 sm:size-48 sm:border-[22px]" />
+          <span aria-hidden="true" className="pointer-events-none absolute bottom-0 -left-20 size-40 rounded-full border-[18px] border-white/20 after:absolute after:-right-1 after:top-5 after:size-2 after:bg-white/25 motion-reduce:animate-none sm:-left-24 sm:size-48 sm:border-[22px] animate-[hero-circle-roll_9s_ease-in-out_infinite]" />
           <div className="absolute left-0 top-12 h-24 w-px bg-white/70" />
           <Image
             src="/hero-outline.png"

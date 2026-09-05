@@ -62,13 +62,15 @@ type ParseResult = { results?: Record<string, unknown>[]; count?: number };
 const serverUrl = (process.env.PARSE_SERVER_URL || "https://backendweb.eollinea.com/parse").replace(/\/$/, "");
 const appId = process.env.PARSE_APP_ID || "f86207c4cf7bdc08ff889e9d8519bbf3";
 const javascriptKey = process.env.PARSE_JAVASCRIPT_KEY || "5828916ef66b1aba0ab4efdb2724c00f27a6560ba126509ca1bbccff3a13e56c";
+const masterKey = process.env.PARSE_MASTER_KEY;
 
 export const isBackendConfigured = Boolean(serverUrl && appId && javascriptKey);
 
-function headers() {
+function headers(includeMasterKey = false) {
   return {
     "X-Parse-Application-Id": appId ?? "",
     "X-Parse-Javascript-Key": javascriptKey ?? "",
+    ...(includeMasterKey && masterKey ? { "X-Parse-Master-Key": masterKey } : {}),
     "Content-Type": "application/json",
   };
 }
@@ -476,28 +478,33 @@ export async function getComments(postId: string, contentClass: "Article" | "Blo
   }));
 }
 
-export async function createComment(input: { postId: string; author: string; content: string; parentId?: string | null; contentClass?: "Article" | "BlogPost" | "Question" }) {
-  if (!serverUrl || !appId || !javascriptKey) return false;
+export async function createComment(input: { postId: string; author: string; email: string; content: string; parentId?: string | null; parentClass?: "Comment" | "BlogComment"; contentClass?: "Article" | "BlogPost" | "Question" }): Promise<{ created: boolean; error?: string }> {
+  if (!serverUrl || !appId || !javascriptKey) return { created: false, error: "Comments are not configured." };
   const content = sanitizeComment(input.content);
-  if (!content) return false;
+  if (!content) return { created: false, error: "Write a comment before publishing." };
   const payload: Record<string, unknown> = {
     postId: input.postId,
     author: input.author.trim() || "Guest",
+    email: input.email.trim().toLowerCase(),
     content,
     isActive: true,
     post: { __type: "Pointer", className: input.contentClass ?? "Article", objectId: input.postId },
   };
   if (input.parentId) {
     payload.parentId = input.parentId;
-    payload.parentComment = { __type: "Pointer", className: "Comment", objectId: input.parentId };
+    payload.parentComment = { __type: "Pointer", className: input.parentClass ?? "Comment", objectId: input.parentId };
   }
-  for (const className of ["Comment", "BlogComment"]) {
+  const classes = input.parentClass ? [input.parentClass, input.parentClass === "Comment" ? "BlogComment" : "Comment"] : ["Comment", "BlogComment"];
+  let error = "Your comment could not be posted.";
+  for (const className of classes) {
     try {
-      const response = await fetch(`${serverUrl}/classes/${className}`, { method: "POST", headers: headers(), body: JSON.stringify(payload), cache: "no-store" });
-      if (response.ok) return true;
+      const response = await fetch(`${serverUrl}/classes/${className}`, { method: "POST", headers: headers(true), body: JSON.stringify(payload), cache: "no-store" });
+      if (response.ok) return { created: true };
+      const data = await response.json().catch(() => null) as { error?: string; code?: number } | null;
+      error = data?.error || error;
     } catch {
       // Try the compatible legacy/current collection.
     }
   }
-  return false;
+  return { created: false, error };
 }

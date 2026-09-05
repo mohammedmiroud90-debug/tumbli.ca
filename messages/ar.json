@@ -1,6 +1,6 @@
 {
   "Home": {
-    "nav": { "label": "التنقل الرئيسي", "language": "اللغة", "discover": "اكتشف", "services": "الخدمات", "featured": "التعلّم المعزّز", "posts": "مقالاتنا", "questions": "الأسئلة والأجوبة", "search": "ابحث في تمبلي", "products": "المنتجات", "platform": "المنصة", "about": "من نحن", "contact": "تواصل معنا", "openMenu": "افتح القائمة", "searchStories": "ابحث عن القصص", "chooseLanguage": "اختر اللغة" },
+    "nav": { "label": "التنقل الرئيسي", "language": "اللغة", "discover": "اكتشف", "services": "الخدمات", "featured": "التعلّم المعزّز", "posts": "مقالاتنا", "questions": "الأسئلة والأجوبة", "search": "ابحث في تمبلي", "products": "المنتجات", "platform": "المنصة", "about": "من نحن", "contact": "تواصل معنا", "request": "اطلب خدمة", "openMenu": "افتح القائمة", "searchStories": "ابحث عن القصص", "chooseLanguage": "اختر اللغة" },
     "eyebrow": "مجلة تمبلي",
     "title": "أفكار جيدة. كل يوم.",
     "description": "اكتشف الأشخاص والأماكن ووجهات النظر الجديدة التي تجعل الحياة اليومية أكثر إثارة للاهتمام.",

@@ -21,15 +21,19 @@ export async function POST(request: Request, { params }: Context) {
   if (!isBackendConfigured) return Response.json({ error: "Backend is not configured" }, { status: 503 });
 
   try {
-    const body = await request.json() as { author?: unknown; content?: unknown; parentId?: unknown };
-    const created = await createComment({
+    const body = await request.json() as { author?: unknown; email?: unknown; content?: unknown; parentId?: unknown; parentClass?: unknown };
+    const email = typeof body.email === "string" ? body.email.trim().toLowerCase() : "";
+    if (!/^\S+@\S+\.\S+$/.test(email)) return Response.json({ error: "Enter a valid email address to publish your comment." }, { status: 400 });
+    const result = await createComment({
       postId,
       author: typeof body.author === "string" ? body.author : "Guest",
+      email,
       content: typeof body.content === "string" ? body.content : "",
       parentId: typeof body.parentId === "string" ? body.parentId : null,
+      parentClass: body.parentClass === "BlogComment" ? "BlogComment" : body.parentClass === "Comment" ? "Comment" : undefined,
       contentClass: contentClass(request),
     });
-    if (!created) return Response.json({ error: "Your comment could not be posted." }, { status: 400 });
+    if (!result.created) return Response.json({ error: result.error || "Your comment could not be posted." }, { status: 400 });
     return Response.json({ created: true }, { status: 201 });
   } catch {
     return Response.json({ error: "Invalid comment request" }, { status: 400 });
