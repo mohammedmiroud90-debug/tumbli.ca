@@ -11,7 +11,7 @@ const nextConfig: NextConfig = {
   images: {
     formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 60 * 60 * 24 * 30,
-    remotePatterns: [{ protocol: "http", hostname: "backendweb.eollinea.com", pathname: "/parse/files/**" }, { protocol: "https", hostname: "a-us.storyblok.com", pathname: "/f/**" }],
+    remotePatterns: [{ protocol: "http", hostname: "backendweb.eollinea.com", pathname: "/parse/files/**" }, { protocol: "https", hostname: "a-us.storyblok.com", pathname: "/f/**" }, { protocol: "https", hostname: "undergrad.stanford.edu", pathname: "/**" }],
   },
   // Keep Turbopack's file watcher within this app instead of allowing it to
   // infer the drive root on Windows (which includes System Volume Information).
