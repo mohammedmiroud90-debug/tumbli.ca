@@ -11,6 +11,19 @@ const copy = {
 export function NewsletterForm({ locale }: { locale: string }) {
   const text = copy[locale as keyof typeof copy] ?? copy.en;
   const [sent, setSent] = useState(false);
-  function submit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); setSent(true); }
-  return <aside className="mt-10 border border-[#d5d0c8] bg-[#ebe7e1] px-5 py-6 sm:flex sm:items-center sm:justify-between sm:gap-8 sm:px-7"><div><p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#8c1515]">{text.eyebrow}</p><h3 className="mt-2 text-xl font-semibold tracking-[-0.03em] text-[#252525]">{text.title}</h3></div>{sent ? <p className="mt-4 text-sm font-semibold text-[#39754b] sm:mt-0">{text.success}</p> : <form onSubmit={submit} className="mt-4 flex max-w-md flex-1 gap-2 sm:mt-0"><input type="email" required placeholder={text.placeholder} className="min-w-0 flex-1 border border-[#c2bbb1] bg-white px-3 py-2.5 text-sm outline-none focus:border-[#8c1515]" /><button className="bg-[#8c1515] px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-[#b1040e]">{text.button}</button></form>}</aside>;
+  function submit(event: FormEvent<HTMLFormElement>) { event.preventDefault(); if (event.currentTarget.checkValidity()) setSent(true); }
+
+  return <aside className="relative mt-12 overflow-hidden rounded-2xl bg-[#252525] px-6 py-8 text-white shadow-[0_18px_42px_rgba(30,20,20,.16)] sm:px-9 sm:py-10 lg:grid lg:grid-cols-[minmax(0,1fr)_minmax(360px,.8fr)] lg:items-center lg:gap-12">
+    <span aria-hidden="true" className="absolute -left-20 -top-20 size-64 rounded-full border-[28px] border-[#f7ced0]/20" />
+    <span aria-hidden="true" className="absolute -bottom-24 right-[28%] size-56 rounded-full bg-[#8c1515]/50 blur-2xl" />
+    <div className="relative">
+      <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-[#f7ced0]">{text.eyebrow}</p>
+      <h3 className="mt-3 max-w-xl text-2xl font-semibold leading-tight tracking-[-0.04em] sm:text-3xl">{text.title}</h3>
+      <p className="mt-3 max-w-lg text-sm leading-6 text-white/70">Fresh stories, useful ideas, and thoughtful discoveries from Tumbli — sent occasionally.</p>
+    </div>
+    <div className="relative mt-7 lg:mt-0">
+      {sent ? <p role="status" className="rounded-xl border border-[#f7ced0]/35 bg-white/10 px-5 py-4 text-sm font-semibold text-[#ffe7e8]">{text.success}</p> : <form onSubmit={submit} className="rounded-xl bg-white p-2 shadow-lg sm:flex sm:items-center"><label className="sr-only" htmlFor="newsletter-email">{text.placeholder}</label><input id="newsletter-email" type="email" required placeholder={text.placeholder} className="min-h-12 min-w-0 w-full flex-1 rounded-lg bg-transparent px-3 text-sm text-[#252525] outline-none placeholder:text-zinc-500 focus:ring-2 focus:ring-[#8c1515]/35" /><button type="submit" className="mt-2 min-h-12 w-full rounded-lg bg-[#8c1515] px-5 text-xs font-semibold uppercase tracking-[.08em] text-white transition-colors hover:bg-[#b1040e] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#8c1515] sm:mt-0 sm:w-auto">{text.button}</button></form>}
+      <p className="mt-3 text-xs leading-5 text-white/50">No noise. Unsubscribe at any time.</p>
+    </div>
+  </aside>;
 }

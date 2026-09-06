@@ -33,3 +33,60 @@ body {
   0%, 100% { transform: translateX(0) rotate(0deg); }
   50% { transform: translateX(12px) rotate(180deg); }
 }
+
+/* Desktop-only social control beside the content-header search field. */
+header > div:first-child a[href="https://www.linkedin.com/in/tumbli"] {
+  border-radius: 9999px;
+  border-color: rgba(255, 255, 255, 0.75);
+  background: transparent;
+  color: #ffffff;
+  box-shadow: none;
+}
+
+header > div:first-child a[href="https://www.linkedin.com/in/tumbli"]:hover {
+  background: rgba(255, 255, 255, 0.14);
+  color: #ffffff;
+}
+
+.article-code-block {
+  position: relative;
+  margin: 2rem 0;
+}
+
+.article-code-block pre {
+  margin: 0;
+  overflow-x: auto;
+  border-left: 3px solid #8c1515;
+  background: #efeeea;
+  padding: 1.25rem 3.5rem 1.25rem 1.25rem;
+  color: #252525;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.article-copy-code {
+  position: absolute;
+  top: 0.65rem;
+  right: 0.65rem;
+  display: grid;
+  width: 2rem;
+  height: 2rem;
+  place-items: center;
+  border: 1px solid #c9c3b9;
+  border-radius: 9999px;
+  background: #ffffff;
+  color: #8c1515;
+  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
+}
+
+.article-copy-code svg {
+  width: 0.9rem;
+  height: 0.9rem;
+}
+
+.article-copy-code:hover,
+.article-copy-code[data-copied="true"] {
+  background: #8c1515;
+  color: #ffffff;
+  transform: translateY(-1px);
+}

@@ -29,7 +29,7 @@ export default async function HomePage() {
   return (
     <main className="min-h-screen overflow-hidden bg-black text-white">
       <section id="top" className="relative overflow-hidden border-b border-white/20 bg-[#8c1515]">
-        <header className="mx-auto w-full max-w-[1320px] px-4 sm:px-8">
+        <header className="mx-auto w-full max-w-[1320px] px-4 sm:px-8 lg:px-16">
           {/* Enhanced Mobile Top Bar */}
           <div className="flex min-h-12 items-center gap-2 border-b border-white/20 text-[11px] font-medium text-white sm:gap-5">
             <span className="shrink-0 text-[10px] font-semibold uppercase tracking-[0.04em] sm:text-[11px]">{t("eyebrow")}</span>
@@ -173,8 +173,8 @@ export default async function HomePage() {
           </nav>
         </header>
 
-        <div className="relative mx-auto min-h-[295px] max-w-[1100px] px-4 pb-9 pt-11 sm:min-h-[365px] sm:px-8 sm:pb-12 sm:pt-16">
-          <span aria-hidden="true" className="pointer-events-none absolute bottom-0 -left-20 size-40 rounded-full border-[18px] border-white/20 after:absolute after:-right-1 after:top-5 after:size-2 after:bg-white/25 motion-reduce:animate-none sm:-left-24 sm:size-48 sm:border-[22px] animate-[hero-circle-roll_9s_ease-in-out_infinite]" />
+        <div className="relative mx-auto min-h-[295px] max-w-[1320px] px-4 pb-9 pt-11 sm:min-h-[365px] sm:px-8 sm:pb-12 sm:pt-16 lg:px-16">
+          <span aria-hidden="true" className="pointer-events-none absolute -bottom-3 -left-20 size-40 rounded-full border-[18px] border-white/50 after:absolute after:right-3 after:top-6 after:size-2.5 after:rounded-full after:bg-[#f7ced0] after:shadow-[0_0_0_4px_rgba(247,206,208,0.16)] motion-reduce:animate-none sm:-bottom-4 sm:-left-24 sm:size-48 sm:border-[22px] lg:-left-28 animate-[hero-circle-roll_9s_ease-in-out_infinite]" />
           <div className="absolute left-0 top-12 h-24 w-px bg-white/70" />
           <Image
             src="/hero-outline.png"
@@ -182,15 +182,16 @@ export default async function HomePage() {
             aria-hidden="true"
             width={480}
             height={420}
-            className="pointer-events-none absolute bottom-[-3.75rem] right-[-3rem] hidden w-[300px] invert opacity-75 lg:block xl:right-[-2rem] xl:w-[420px]"
+            className="pointer-events-none absolute bottom-[-3.75rem] right-[-5rem] hidden w-[300px] invert opacity-75 lg:block xl:right-[-4rem] xl:w-[420px]"
+            priority
           />
-          <div className="relative z-10 max-w-[670px]">
+          <div className="relative z-10 max-w-[670px] lg:translate-x-4">
             <p className="mb-5 text-[11px] font-semibold uppercase tracking-[0.2em] text-[#f7ced0]">{t("eyebrow")}</p>
             <DynamicHomeHeading title={t("title")} locale={locale} />
             <p className="mt-4 max-w-[650px] text-sm leading-6 text-zinc-200 sm:text-base">{t("description")}</p>
             <div className="mt-6 flex flex-wrap gap-x-7 gap-y-3 text-sm font-semibold text-white">
               <a className="border-b border-white/80 pb-0.5 transition-opacity hover:opacity-70" href="#our-posts">{t("cta")} <span aria-hidden="true">&nearr;</span></a>
-              <a className="border-b border-white/80 pb-0.5 transition-opacity hover:opacity-70" href="#discover">{t("secondaryCta")} <span aria-hidden="true">&nearr;</span></a>
+              <a className="inline-flex items-center gap-1.5 border-b border-white/80 pb-0.5 transition-opacity hover:opacity-70" href="#discover">{t("secondaryCta")} <svg aria-hidden="true" viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.7" className="size-3.5"><path d="M3 13 13 3M6 3h7v7" /></svg></a>
             </div>
           </div>
         </div>
